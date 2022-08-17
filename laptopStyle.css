@@ -1,0 +1,201 @@
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;   
+}
+html {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(38, 70%, 59%);
+    perspective: 1000px;
+}
+/* laptop */
+.laptop {
+    position: relative;
+    animation: laptop 1s 1s ease-out forwards;
+    transform-style: preserve-3d;
+    transform: scale(0.5);
+}
+.laptop::before {
+    position: absolute;
+    content: '';
+    top: 60%;
+    width: 100%;
+    height: 5rem;
+    left: 50%;
+    background: radial-gradient(#0003, #0000 70%);
+    transform: translate(-50%) scale(0.6);
+    opacity: 0;
+    animation: shadow 0.2s 1s ease-out forwards;
+}
+/* screen */
+.laptop .screen {
+    position: relative;
+    width: 15rem;
+    height: 10rem;
+    background-color: #1c1c1c;
+    border: 0.5rem solid #222;
+    border-radius: 4px;
+    transform-origin: 50% 100%;
+    transform: rotate3d(1,0,0,-90deg);
+    animation: screen 1s 1s ease-out forwards;
+}
+/* wallpaper */ 
+.laptop .screen .wallpaper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, hsl(220, 80%, 60%), hsl(220, 80%, 30%));
+    opacity: 0;
+    border-radius: 0px;
+    animation: wallpaper 0.4s 2s ease-out forwards;
+}
+.laptop .screen .wallpaper::after {
+    position: absolute;
+    content: '';
+    right: 0.5rem;
+    bottom: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.15rem;
+    background-color: #fff5;
+}
+/* Terminal */
+.laptop .screen .wallpaper .terminal {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 75%;
+    height: 60%;
+    background-color: #222;
+    border-radius: 4px;
+    border-top: 8px solid #555;
+    font-size: 0.5rem;
+    color: #fff;
+    font-family: monospace;
+    padding: 0.25rem;
+}
+.laptop .screen .wallpaper .terminal::before {
+    color: #fff;
+    content: '>';
+    animation: typing 4s 2.5s linear alternate infinite;
+}
+/* keyboard */
+.laptop .keyboard {
+    position: relative;
+    width: 15rem;
+    height: 10rem;
+    background-color: #222;
+    transform-origin: 50% 0%;
+    border-radius: 4px;
+    transform: rotate3d(1, 0, 0, 90deg);
+    animation: keyboard 1s 1s ease-out forwards;
+}
+.laptop .keyboard::before {
+    position: absolute;
+    content: '';
+    top: 0.5rem;
+    left: 0.5rem;
+    width: calc(100% - 1rem);
+    height: calc(70% - 1rem);
+    background-color: #333;
+    border-radius: 4px;
+}
+.laptop .keyboard::after {
+    position: absolute;
+    content: '';
+    bottom: 0.5rem;
+    left: 50%;
+    width: 30%;
+    height: 25%;
+    background-color: #333;
+    border-radius: 4px;
+    transform: translateX(-50%);
+}
+
+
+/*  keyframes for animations */
+@keyframes shadow {
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes screen {
+    0% {
+        transform: rotate3d(1, 0, 0, -90deg);
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, 0deg);
+    }
+}
+@keyframes wallpaper {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes keyboard {
+    0% {
+        transform: rotate3d(1, 0, 0, 90deg);
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, 70deg);
+    }
+}
+@keyframes laptop {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(2.0);
+    }
+}
+@keyframes typing {
+    0% {content: '> ';}
+    3% {content: '> _';}
+    6% {content: '> ';}
+    9% {content: '> W_';}
+    12% {content: '> We_';}
+    15% {content: '> Wel_';}
+    18% {content: '> Welc_';}
+    21% {content: '> Welco_';}
+    24% {content: '> Welcom _';}
+    27% {content: '> Welcome_';}
+    30% {content: '> Welcome _';}
+    33% {content: '> Welcome t_';}
+    36% {content: '> Welcome to_';}
+    39% {content: '> Welcome to D_';}
+    42% {content: '> Welcome to Da_';}
+    45% {content: '> Welcome to Dan_';}
+    48% {content: '> Welcome to Dani_';}
+    51% {content: '> Welcome to Danie_';}
+    54% {content: '> Welcome to Daniel_';}
+    57% {content: "> Welcome to Daniel'_";}
+    60% {content: "> Welcome to Daniel's_";}
+    63% {content: "> Welcome to Daniel's p_";}
+    66% {content: "> Welcome to Daniel's po_";}
+    69% {content: "> Welcome to Daniel's por_";}
+    72% {content: "> Welcome to Daniel's port_";}
+    75% {content: "> Welcome to Daniel's portf_";}
+    78% {content: "> Welcome to Daniel's portfo_";}
+    81% {content: "> Welcome to Daniel's portfol_";}
+    83% {content: "> Welcome to Daniel's portfoli_";}
+    86% {content: "> Welcome to Daniel's portfolio_";}
+    89% {content: "> Welcome to Daniel's portfolio";}
+    92% {content: "> Welcome to Daniel's portfolio_";}
+    95% {content: "> Welcome to Daniel's portfolio";}
+    98% {content: "> Welcome to Daniel's portfolio_";}
+    100% {content: "> Welcome to Daniel's portfolio";}
+}
